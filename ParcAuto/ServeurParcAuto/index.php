@@ -1,7 +1,10 @@
 <?php
     define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS']) ? "https" : "http").
     "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
-    
+
+    require_once "controllers/front/APIController.php";
+    $apiController = new APIController();
+
     try {
         if (empty($_GET['page'])) {
             throw new Exception("La page n'existe pas");
@@ -11,14 +14,15 @@
             switch ($url[0]) {
                 case 'front':
                     switch ($url[1]) {
-                        case 'voitures':
-                            echo "données JSON des voitures demandées";
+                        case 'voitures': $apiController -> getCars();
                             break;
-                        case 'voiture':
-                            echo "données JSON de la voiture ". $url[2]. " demandée";
+                        case 'voiture': 
+                            if (empty($url[2])) {
+                                throw new Exception ("id de la voiture manquante");
+                            }
+                            $apiController -> getCar($url[2]);
                             break;
-                        case 'categorie':
-                            echo "données JSON des catégorie demandée";
+                        case 'categorie': $apiController -> getCategories();
                             break;
                         default:
                             throw new Exception("La page n'existe pas");
