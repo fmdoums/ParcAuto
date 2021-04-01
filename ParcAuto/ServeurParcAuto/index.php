@@ -14,15 +14,15 @@
             switch ($url[0]) {
                 case 'front':
                     switch ($url[1]) {
-                        case 'voitures': $apiController -> getCars();
+                        case 'cars': $apiController -> getCars();
                             break;
-                        case 'voiture': 
+                        case 'car': 
                             if (empty($url[2])) {
                                 throw new Exception ("id de la voiture manquante");
                             }
                             $apiController -> getCar($url[2]);
                             break;
-                        case 'categorie': $apiController -> getCategories();
+                        case 'categories': $apiController -> getCategories();
                             break;
                         default:
                             throw new Exception("La page n'existe pas");
