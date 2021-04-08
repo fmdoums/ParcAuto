@@ -3,18 +3,23 @@ import Navbar from "./../../components/UI/NavBar";
 import {Switch, Route} from "react-router-dom";
 import Acceuil from "./Accueil";
 import Contact from "./Contact";
-import Erreur from "../../components/UI/Erreur"
+import Error from "../../components/UI/Error"
+import Footer from "../../components/UI/Footer";
 
 class Site extends Component {
     render() {
         return (
            <>
-                <Navbar />
-                <Switch>
-                    <Route path="/contact" exact render={() => <Contact />} />
-                    <Route path="/" exact render={() => <Acceuil />} />    
-                    <Route render={() => <Erreur type="404"> La page n'existe pas </Erreur>}/>
-                </Switch>
+                <div className="site">
+                    <Navbar />
+                    <Switch>
+                        <Route path="/contact" exact render={() => <Contact />} />
+                        <Route path="/" exact render={() => <Acceuil />} />    
+                        <Route render={() => <Error type="404"> La page n'existe pas </Error>}/>
+                    </Switch>
+                    <div className="minSite"></div>
+                </div>
+                <Footer />
            </>
         );
     }

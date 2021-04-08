@@ -1,0 +1,27 @@
+.site {
+    min-height: 100vh;
+    
+}
+
+footer, .minSite {
+    height: 140px;
+}
+
+.imgFB, .imgTW {
+    height: 75px;
+}
+
+.imgYB {
+    height: 25px;
+}
+
+@media only screen and (max-width:720px) {
+   
+    .imgFB, .imgTW {
+        height: 25px;
+    }
+    
+    .imgYB {
+        height: 25px;
+    }
+}

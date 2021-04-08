@@ -1,7 +1,7 @@
 import React from "react"; 
 import TitleH1 from "./TitleH1";
 
-const Erreur = (props) => {
+const Error = (props) => {
     return (
         <>
             <TitleH1 bgColor="bg-danger">Erreur {props.type}</TitleH1>
@@ -12,4 +12,4 @@ const Erreur = (props) => {
     )
 }; 
 
-export default Erreur;
+export default Error;
